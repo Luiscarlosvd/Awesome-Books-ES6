@@ -1,7 +1,7 @@
 import BookList from './modules/booksList.js';
 import Book from './modules/bookClass.js';
 import { List, contact, addNew } from './modules/displaySections.js';
-import dt from './modules/date.js';
+import { DateTime, Settings } from './modules/luxon.js';
 
 const booksContainer = document.querySelector('.books');
 const form = document.getElementById('addBook');
@@ -33,7 +33,12 @@ menuList.addEventListener('click', List);
 menuAddNew.addEventListener('click', addNew);
 menuContact.addEventListener('click', contact);
 
-const dateDiv = document.querySelector('.date');
-dateDiv.innerHTML = dt;
+const Date = document.querySelector('.date');
+
+Settings.defaultLocale = 'en-US';
+
+setInterval(() => {
+  Date.textContent = DateTime.utc().toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
+}, 1000);
 
 document.addEventListener('DOMContentLoaded', bookslist.displayBooks());

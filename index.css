@@ -41,6 +41,11 @@ nav a:focus {
   color: #1183ec;
 }
 
+.date {
+  text-align: right;
+  margin-right: 0.9em;
+}
+
 .awesome-books-list {
   display: flex;
   flex-direction: column;
